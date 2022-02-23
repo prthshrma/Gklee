@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-MAINTAINER Tanmay
+MAINTAINER Parth
 
 # Setting Environment variables.
 ENV KLEE_HOME_DIR=/home/Gklee
@@ -17,7 +17,7 @@ RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 10
 RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 10
 
 # Cloning the repository
-RUN cd /home && git clone https://github.com/tanmaytirpankar/Gklee.git
+RUN cd /home && git clone https://github.com/prthshrma/Gklee.git
 
 # Fixing gklee-nvcc to use the correct gcc toolchain
 RUN cd /home/Gklee && sed -i "s|-Xclang -fgpu-device|-Xclang -fgpu-device -gcc-toolchain /usr/include/c++/4.8.5|g" bin/gklee-nvcc
